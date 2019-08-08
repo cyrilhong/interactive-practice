@@ -1,42 +1,49 @@
 <template>
   <div id="app">
     <div class="hopper" :class="hopper?'hoper-active':''">
+      <div class="back" @click="hopper=!hopper">Back</div>
       <div class="header">
         <h1>DEVICES</h1>
       </div>
       <div class="list">
         <div class="item">
-          <img src="https://img.icons8.com/ios/96/000000/computer.png">
+          <img src="https://img.icons8.com/ios/96/000000/computer.png" />
           <span>DESKTOP</span>
         </div>
         <div class="item">
-          <img src="https://img.icons8.com/wired/96/000000/visual-game-boy.png">
+          <img src="https://img.icons8.com/wired/96/000000/visual-game-boy.png" />
           <span>GAMEBOY</span>
         </div>
         <div class="item">
-          <img src="https://img.icons8.com/material-outlined/96/000000/iphone.png">
+          <img src="https://img.icons8.com/material-outlined/96/000000/iphone.png" />
           <span>MOBILE PHONE</span>
         </div>
       </div>
       <div class="photo">
-        <img src="https://images.unsplash.com/photo-1483388147740-e5c70536042e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" alt="">
+        <img
+          src="https://images.unsplash.com/photo-1483388147740-e5c70536042e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+          alt
+        />
       </div>
     </div>
     <full-page ref="fullpage" :options="options" id="fullpage">
+      <div class="close" @click="currentTab=false">Close</div>
       <div class="section" :class="currentTab?'openTab':''" @click="openTab(currentTab)">
-        <h1>IT'S HOT TODAY</h1>
-        <h2>6 DEVICES</h2>
+        <div class="content">
+          <h1>IT'S HOT TODAY</h1>
+          <h2>6 DEVICES</h2>
+        </div>
         <div class="menu">
           <div class="item" @click="hopper=!hopper">
-            <img src="https://img.icons8.com/ios/96/ffffff/computer.png">
+            <img src="https://img.icons8.com/ios/96/ffffff/computer.png" />
             <span>DESKTOP</span>
           </div>
           <div class="item">
-            <img src="https://img.icons8.com/wired/96/ffffff/visual-game-boy.png">
+            <img src="https://img.icons8.com/wired/96/ffffff/visual-game-boy.png" />
             <span>GAMEBOY</span>
           </div>
           <div class="item">
-            <img src="https://img.icons8.com/material-outlined/96/ffffff/iphone.png">
+            <img src="https://img.icons8.com/material-outlined/96/ffffff/iphone.png" />
             <span>MOBILE PHONE</span>
           </div>
         </div>
@@ -44,7 +51,7 @@
           class="big-img"
           src="https://images.unsplash.com/photo-1551730458-be400bef0161?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
           alt="img"
-        >
+        />
         <!-- <button class="next" @click="$refs.fullpage.api.moveSectionDown()">Next</button> -->
       </div>
       <div class="section">
@@ -54,7 +61,7 @@
           class="big-img"
           src="https://images.unsplash.com/photo-1551074659-f12c57f205b4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80"
           alt
-        >
+        />
         <button class="prev" @click="$refs.fullpage.api.moveSectionUp()">Prev</button>
       </div>
     </full-page>
@@ -95,7 +102,7 @@ export default {
   font-family: "Avenir";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  transition: all .6s;
+  transition: all 0.6s;
   transition-property: all;
   transition-timing-function: ease;
   color: #263646;
@@ -110,7 +117,7 @@ export default {
     // margin-top: -240px;
     z-index: 0;
     position: absolute;
-    transition: all .6s;
+    transition: all 0.6s;
     object-position: 100% 100%;
     bottom: 0;
     // bottom: 100%;
@@ -123,7 +130,7 @@ export default {
     font-size: 8rem;
     padding: 100px 0 0 100px;
     margin: 0;
-    transition: all .6s;
+    transition: all 0.6s;
   }
   h2 {
     position: relative;
@@ -131,7 +138,7 @@ export default {
     font-size: 3rem;
     font-weight: bold;
     margin: 0 100px;
-    transition: all .6s;
+    transition: all 0.6s;
   }
   ul {
     padding: 0;
@@ -168,7 +175,7 @@ export default {
   h1,
   h2 {
     color: #fff;
-    transition: all .6s;
+    transition: all 0.6s;
   }
   h1 {
     font-size: 2rem;
@@ -180,7 +187,7 @@ export default {
     height: 300px;
     bottom: 0;
     top: initial;
-    transition: all .6s;
+    transition: all 0.6s;
     object-position: 100% 30%;
   }
   .menu {
@@ -195,8 +202,9 @@ export default {
   height: 100%;
   z-index: 2;
   background-color: #fff;
-  transition: all .6s;
-  .header{
+  transition: all 0.6s;
+  top: 0;
+  .header {
     padding: 20px;
   }
   .list {
@@ -209,15 +217,47 @@ export default {
       margin-right: 20px;
     }
   }
-  .photo{
+  .photo {
     width: 100%;
-    height: 600px;
     position: absolute;
-    bottom: 0;
+    z-index: 1;
+    height: 100%;
+    top: 0;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+      position: relative;
+    }
   }
 }
 .hoper-active {
   right: 0;
-  transition: all .6s;
+  transition: all 0.6s;
+}
+.close {
+  font-size: 32px;
+  position: absolute;
+  right: 5%;
+  top: -50px;
+  z-index: 1;
+  cursor: pointer;
+}
+.content {
+  position: absolute;
+  right: 0;
+  top: 50%;
+}
+
+.back {
+  font-size: 64px;
+  font-weight: bold;
+  color: #fff;
+  left: 20px;
+  top: 20px;
+  z-index: 100;
+  position: relative;
+  cursor: pointer;
 }
 </style>
