@@ -9,14 +9,14 @@
   },
   "dependencies": {
     "lodash": "^4.17.11",
-    "sass-loader": "^7.1.0",
+    "sass-loader": "^13.2.0",
     "vue": "^2.6.10",
     "vue-fullpage.js": "^0.1.2"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^3.5.1",
-    "@vue/cli-plugin-eslint": "^3.5.1",
-    "@vue/cli-service": "^3.5.1",
+    "@vue/cli-plugin-babel": "^5.0.8",
+    "@vue/cli-plugin-eslint": "^5.0.8",
+    "@vue/cli-service": "^5.0.8",
     "babel-eslint": "^10.0.1",
     "eslint": "^5.15.3",
     "eslint-plugin-vue": "^5.0.0",
